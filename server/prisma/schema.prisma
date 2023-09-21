@@ -35,6 +35,13 @@ enum SessionLogEvent {
   DISCONNECT //data = ""
 }
 
+enum EnrollmentType {
+  UNDERGRADUATE
+  GRADUATE
+  FACULTY
+  ALUMNI
+}
+
 enum OrganizationSpecialUsage {
   ///DEVICE_LOGIN is a device assigned-id that acts as a user login for non-Cornell users.
   DEVICE_LOGIN
@@ -51,7 +58,7 @@ model User {
   email               String
   hashedRefreshToken  String
   administrator       Boolean
-  userStatus          String
+  enrollmentType      EnrollmentType
   score               Int
   isBanned            Boolean           @default(false)
   rewards             EventReward[]
